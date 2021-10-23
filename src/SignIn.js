@@ -1,58 +1,52 @@
 import "./App.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { onSignUp } from "./users";
+import { onSignIn } from "./users";
 
-const SignUp = () => {
-  const [name, setName] = useState("");
+const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [data, setData] = useState("");
 
   const body = {
-    name: name,
     email: email,
     password: password,
   };
 
-  async function onSignUpClicked() {
-    const data = await onSignUp(body);
+  async function onSignInClicked() {
+    const data = await onSignIn(body);
     setData(JSON.stringify(data));
   }
   return (
     <div className="flex-container">
-      <h2>Sign Up</h2>
-
+      <div>
+        <h2>Sign In</h2>
+      </div>
       <input
-        placeholder="name"
-        value={name}
-        onChange={(event) => setName(event.target.value)}
-        type="text"
-      />
-      <input
-        placeholder="email"
         value={email}
         onChange={(event) => setEmail(event.target.value)}
         type="email"
+        placeholder="email"
       />
+
       <input
-        placeholder="password"
         value={password}
         onChange={(event) => setPassword(event.target.value)}
         type="password"
+        placeholder="password"
       />
-      <button onClick={onSignUpClicked}>Sign up</button>
-      <div>{data}</div>
 
-      <p>Already have an account?</p>
+      <button onClick={onSignInClicked}>Sign in</button>
+      <p>Don't have an account</p>
       <button>
-        <Link to="/sign-in" className="link">
-          Sign in
+        <Link to="/sign-up" className="link">
+          Sign up
         </Link>
       </button>
+      <div>{data}</div>
       <Link to="/">Home</Link>
     </div>
   );
 };
 
-export default SignUp;
+export default SignIn;

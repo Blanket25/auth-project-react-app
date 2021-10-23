@@ -11,12 +11,8 @@ div.flex-container {
   margin: 3rem 0;
 }
 
-div.input-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 3rem;
+h2 {
+  color: rgb(60, 7, 109);
 }
 
 input {
@@ -32,4 +28,9 @@ button {
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+  color: #fff;
 }

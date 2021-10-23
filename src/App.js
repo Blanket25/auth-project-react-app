@@ -1,24 +1,17 @@
 import "./App.css";
 import Home from "./Home";
-import Login from "./Login";
+import SignIn from "./SignIn";
 import SignUp from "./SignUp";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="flex-container">
-        <Home />
-        <button>
-          <Link to="/log-in">Log in</Link>
-        </button>
-        <button>
-          <Link to="/sing-up">Sign up</Link>
-        </button>
-
-        <Route path="/log-in" component={Login} />
+      <Switch>
+        <Route path="/sign-in" component={SignIn} />
         <Route path="/sign-up" component={SignUp} />
-      </div>
+        <Route path="/" component={Home} />
+      </Switch>
     </BrowserRouter>
   );
 }
